@@ -1,9 +1,7 @@
-
-function App() { 
-  return (
-    <>
-    </>
-  )
+function App() {
+  const i = "d"
+  console.log(i)
+  return <></>;
 }
 
-export default App
+export default App;
