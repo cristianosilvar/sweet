@@ -1,9 +1,8 @@
+import './globals.css'
+import RoutesComponent from './routes'
 
-function App() { 
-  return (
-    <>
-    </>
-  )
+function App() {
+  return <RoutesComponent />
 }
 
 export default App
