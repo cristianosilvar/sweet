@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Minus } from 'lucide-react'
 import { ChevronDown } from 'lucide-react'
 
-import Button from '../Button'
+import Button from '../button'
 
 const HeaderNavItem = () => {
   const [isOpen, setIsOpen] = useState(false)

@@ -1,5 +1,7 @@
-import DropDown from '../../components/Dropdown'
-import Header from '../../components/Header'
+import { Dribbble, GalleryVerticalEnd, Gamepad2, Video } from 'lucide-react'
+
+import Header from '../../components/header'
+import DropdownPrimary from '../../components/ui/dropdownPrimary'
 
 const Home = () => {
   return (
@@ -7,9 +9,14 @@ const Home = () => {
       <Header.Root>
         <Header.Logo />
         <Header.Nav>
-          <DropDown
-            items={[{ content: 'Movies' }, { content: 'Games' }]}
-            className="w-48 justify-between gap-6 border-2 border-blue-950  bg-black  hover:border-blue-900"
+          <DropdownPrimary
+            iconButton={GalleryVerticalEnd}
+            textButton="category"
+            items={[
+              { text: 'sports', icon: Dribbble },
+              { text: 'movies', icon: Video },
+              { text: 'video games', icon: Gamepad2 },
+            ]}
           />
         </Header.Nav>
       </Header.Root>
