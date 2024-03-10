@@ -4,9 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {	
-  background-color: rgb(2 6 23);
+body {
+  background-color: #09090b;
   color: #fefefe;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
