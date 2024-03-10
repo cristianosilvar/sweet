@@ -16,7 +16,7 @@ const DropdownMenu = ({
     <div
       {...props}
       className={twMerge(
-        `absolute z-10 mt-2 w-full rounded-lg  border border-white/[.15] shadow ${isOpen ? '' : 'hidden'}`,
+        `absolute z-10 mt-2 w-full overflow-hidden  rounded-lg border border-white/[.15] shadow ${isOpen ? '' : 'hidden'}`,
         className,
       )}
     >

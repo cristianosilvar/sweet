@@ -14,7 +14,7 @@ const HeaderLogo = ({
     <div
       {...props}
       className={twMerge(
-        'whitespace-nowrap text-3xl font-bold tracking-tighter',
+        'cursor-pointer whitespace-nowrap text-3xl font-bold tracking-tighter',
         className,
       )}
     >

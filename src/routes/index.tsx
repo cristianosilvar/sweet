@@ -4,11 +4,14 @@ import Home from '../pages/home'
 import Video from '../pages/video'
 import Category from '../pages/category'
 
+import Header from '../components/ui/header'
+
 import ProtectedRoute from './protectedRoute'
 
 const RoutesComponent = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<ProtectedRoute />}>
           <Route index element={<Home />} />
