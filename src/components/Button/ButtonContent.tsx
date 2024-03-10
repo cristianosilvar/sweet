@@ -1,4 +1,5 @@
 import { ComponentProps } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface ButtonContentProps extends ComponentProps<'span'> {
   text: string
@@ -6,7 +7,7 @@ interface ButtonContentProps extends ComponentProps<'span'> {
 
 const ButtonContent = ({ text, className, ...props }: ButtonContentProps) => {
   return (
-    <span {...props} className={className}>
+    <span {...props} className={twMerge('transition-all', className)}>
       {text}
     </span>
   )
