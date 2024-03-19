@@ -1,17 +1,13 @@
-import { Volume2, VolumeX } from 'lucide-react'
 import { ComponentProps, ReactNode, useRef, useState } from 'react'
+import { Volume2, VolumeX } from 'lucide-react'
+import { twMerge } from 'tailwind-merge'
 import ReactPlayer from 'react-player'
 
 import { formatTime } from '../../utils/format/formatTime'
 import { getTimeWithSeconds } from '../../utils/getTimeWithSeconds'
 
 import Button from '../../components/button'
-import { twMerge } from 'tailwind-merge'
-
-type ProgressBarProps = ComponentProps<'div'> & {
-  completed: number
-  barClass?: string
-}
+import ProgressBar from '../progressBar'
 
 type TimeProps = ComponentProps<'span'> & {
   time: {
@@ -21,31 +17,6 @@ type TimeProps = ComponentProps<'span'> & {
   }
   showSeparator?: boolean
   elementSeparator?: ReactNode
-}
-
-function ProgressBar({
-  className,
-  barClass,
-  completed: completedT,
-  ...props
-}: ProgressBarProps) {
-  const completed = Math.min(completedT, 100)
-
-  console.log(completed)
-
-  return (
-    <div
-      className={twMerge(
-        'h-1 w-full overflow-hidden rounded-full bg-white/15 hover:cursor-pointer',
-        className,
-      )}
-      {...props}
-    >
-      <div
-        className={twMerge(`h-full w-7 rounded-full bg-white/50`, barClass)}
-      />
-    </div>
-  )
 }
 
 function Time({
@@ -87,10 +58,8 @@ function Player() {
   const playerRef = useRef<ReactPlayer>(null)
   const duration = getTimeWithSeconds(playerRef.current?.getDuration() || 0)
 
-  // const x = playerRef.current?.getDuration()
-  // const porcent = (timeSeconds / (x || 0)).toFixed(0)
-
-  console.log(timeSeconds)
+  const x = playerRef.current?.getDuration()
+  const porcent = Math.round((timeSeconds / (x || 0)) * 100)
 
   const handleSeekTo = (time: number) => {
     const value = Math.min(time, playerRef?.current?.getDuration() || 0)
@@ -109,10 +78,9 @@ function Player() {
         restartTime()
       }}
       className="group/player relative aspect-video h-min w-[300px] overflow-hidden rounded-2xl bg-white/5 object-cover"
-      // className="group/player relative aspect-video h-min w-min overflow-hidden rounded-3xl bg-white/5 object-cover"
     >
       <div
-        className={`column absolute bottom-0 z-[100000] w-full px-2 pb-4 md:px-4`} //group-hover/player:flex
+        className={`column absolute bottom-0 z-[100000] hidden w-full flex-col px-2 pb-4 group-hover/player:flex md:px-4`}
       >
         <div className="mb-1 flex items-center justify-between pl-2">
           <div className="select-none">
@@ -131,10 +99,12 @@ function Player() {
             />
           </Button.Root>
         </div>
-        <ProgressBar completed={5} />
+        <ProgressBar.Root>
+          <ProgressBar.Completed completed={porcent} />
+        </ProgressBar.Root>
       </div>
       <div
-        className="to-/90 absolute h-full w-full cursor-pointer bg-gradient-to-t from-black via-black/70 to-transparent" //group/player:bg-gradient-to-t
+        className="to-/90 absolute h-full w-full cursor-pointer from-black via-black/70 to-transparent group-hover/player:bg-gradient-to-t"
         onClick={() => {
           setIsPlaying((prev) => !prev)
         }}
