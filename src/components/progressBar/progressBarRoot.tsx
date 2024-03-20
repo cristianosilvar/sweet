@@ -11,7 +11,7 @@ const ProgressBarRoot = ({
   return (
     <div
       className={twMerge(
-        'h-1 w-full overflow-hidden rounded-full bg-white/15 hover:cursor-pointer',
+        'h-1 w-full overflow-hidden rounded-full bg-white/15',
         className,
       )}
       {...props}
