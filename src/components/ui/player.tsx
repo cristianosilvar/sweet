@@ -71,7 +71,7 @@ function Player() {
   }
 
   return (
-    <div
+    <div // 1
       onMouseOver={() => setIsPlaying(true)}
       onMouseLeave={() => {
         setIsPlaying(false)
@@ -79,10 +79,11 @@ function Player() {
       }}
       className="group/player relative aspect-video h-min w-[300px] overflow-hidden rounded-2xl bg-white/5 object-cover"
     >
-      <div
+      <div // 2
         className={`column absolute bottom-0 z-[100000] hidden w-full flex-col px-2 pb-4 group-hover/player:flex md:px-4`}
       >
         <div className="mb-1 flex items-center justify-between pl-2">
+          {/* //3 */}
           <div className="select-none">
             <Time time={currentTime} showSeparator />
             <Time time={duration} className="text-white/70" />
@@ -100,16 +101,18 @@ function Player() {
           </Button.Root>
         </div>
         <ProgressBar.Root>
+          {' '}
+          {/* //4 */}
           <ProgressBar.Completed completed={porcent} />
         </ProgressBar.Root>
       </div>
-      <div
+      <div // 5
         className="to-/90 absolute h-full w-full cursor-pointer from-black via-black/70 to-transparent group-hover/player:bg-gradient-to-t"
         onClick={() => {
           setIsPlaying((prev) => !prev)
         }}
       />
-      <ReactPlayer
+      <ReactPlayer // 6
         ref={playerRef}
         url="https://vimeo.com/354218747" // https://vimeo.com/354218747
         playing={isPlaying}
