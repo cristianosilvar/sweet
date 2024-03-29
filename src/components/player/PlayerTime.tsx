@@ -2,19 +2,21 @@ import { ComponentProps, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import { formatTime } from '../../utils/format/formatTime'
-import { TimeProps } from '../../types'
+import { getTimeWithSeconds } from '../../utils/getTimeWithSeconds'
 
 type PlayerTimeProps = ComponentProps<'span'> & {
-  time: TimeProps
+  seconds?: number
   separator?: ReactNode
 }
 
 const PlayerTime = ({
-  time,
+  seconds = 0,
   className,
   separator,
   ...props
 }: PlayerTimeProps) => {
+  const time = getTimeWithSeconds(seconds)
+
   return (
     <>
       <span className={twMerge('text-xs', className)} {...props}>
