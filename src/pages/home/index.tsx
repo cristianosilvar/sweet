@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import axios from 'axios'
 
 import ButtonLink from '../../components/ui/buttonLink'
 import PreviewPlayer from '../../components/ui/previewPlayer'
 
+import carouselBreakpoint from '../../constants/carouselBreakpoint'
 import { CategoryProps } from '../../types/category'
 import { VideoProps } from '../../types/video'
 
@@ -48,20 +51,30 @@ function Home() {
       {categories?.map((category) => (
         <div key={category.id}>
           <ButtonLink textButton={category.title} />
-          <div className="flex gap-2">
+          <Carousel
+            containerClass="carousel-container"
+            additionalTransfrom={0}
+            autoPlaySpeed={3000}
+            centerMode={false}
+            focusOnSelect={false}
+            removeArrowOnDeviceType={['base']}
+            responsive={carouselBreakpoint}
+            minimumTouchDrag={80}
+            keyBoardControl
+            draggable
+            infinite
+            arrows
+          >
             {videos?.map((video) => {
-              if (video.categoryId === category.id) {
-                return (
-                  <PreviewPlayer
-                    key={video.id}
-                    videoProps={{ url: video.url }}
-                  />
-                )
+              if (video.categoryId !== category.id) {
+                return undefined
               }
 
-              return undefined
+              return (
+                <PreviewPlayer key={video.id} videoProps={{ url: video.url }} />
+              )
             })}
-          </div>
+          </Carousel>
         </div>
       ))}
     </div>

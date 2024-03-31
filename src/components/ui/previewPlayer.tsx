@@ -19,7 +19,7 @@ function PreviewPlayer({ videoProps, onClick, ...props }: PlayerProps) {
   const [durationSeconds, setDurationSeconds] = useState(0)
 
   const playerRef = useRef<ReactPlayer>(null)
-  const playedPorcent = (playedSeconds / durationSeconds) * 100
+  const playedPorcent = (playedSeconds / durationSeconds || 0) * 100
 
   const seekTo = useCallback(
     (seconds: number) => {
