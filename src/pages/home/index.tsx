@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import axios from 'axios'
@@ -11,6 +12,8 @@ import { CategoryProps } from '../../types/category'
 import { VideoProps } from '../../types/video'
 
 function Home() {
+  const navigate = useNavigate()
+
   const [categories, setCategories] = useState<CategoryProps[]>([])
   const [videos, setVideos] = useState<VideoProps[]>([])
 
@@ -47,12 +50,16 @@ function Home() {
   }, [getCategories])
 
   return (
-    <div className="px-2">
+    <div className="mx-auto w-[94%] ">
       {categories?.map((category) => (
         <div key={category.id}>
-          <ButtonLink textButton={category.title} />
+          <ButtonLink
+            textButton={category.title}
+            onClick={() => navigate(`category/${category.id}`)}
+          />
           <Carousel
             containerClass="carousel-container"
+            itemClass="mx-1"
             additionalTransfrom={0}
             autoPlaySpeed={3000}
             centerMode={false}
@@ -71,7 +78,11 @@ function Home() {
               }
 
               return (
-                <PreviewPlayer key={video.id} videoProps={{ url: video.url }} />
+                <PreviewPlayer
+                  key={video.id}
+                  videoProps={{ url: video.url }}
+                  className="w-full"
+                />
               )
             })}
           </Carousel>

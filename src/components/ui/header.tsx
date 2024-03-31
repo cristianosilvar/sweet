@@ -15,9 +15,21 @@ const Header = () => {
           iconButton={GalleryVerticalEnd}
           textButton="category"
           items={[
-            { text: 'sports', icon: Dribbble },
-            { text: 'movies', icon: Video },
-            { text: 'video games', icon: Gamepad2 },
+            {
+              text: 'sports',
+              icon: Dribbble,
+              onClick: () => navigate('category/1'),
+            },
+            {
+              text: 'movies',
+              icon: Video,
+              onClick: () => navigate('category/2'),
+            },
+            {
+              text: 'video games',
+              icon: Gamepad2,
+              onClick: () => navigate('category/3'),
+            },
           ]}
         />
       </HeaderComponent.Nav>
