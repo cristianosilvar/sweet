@@ -5,6 +5,7 @@ import Video from '../pages/video'
 import Category from '../pages/category'
 
 import Header from '../components/ui/header'
+import Footer from '../components/ui/footer'
 
 import ProtectedRoute from './protectedRoute'
 
@@ -20,6 +21,7 @@ const RoutesComponent = () => {
         </Route>
         <Route path="*" element={<p>Page not found</p>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
