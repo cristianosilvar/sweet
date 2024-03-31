@@ -7,7 +7,7 @@ export interface ItemProps {
   text: string
 }
 
-interface DropdownItemProps extends ComponentProps<'li'>, ItemProps {}
+export interface DropdownItemProps extends ComponentProps<'li'>, ItemProps {}
 
 const DropdownItem = ({
   text,

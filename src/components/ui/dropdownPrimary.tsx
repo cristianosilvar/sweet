@@ -2,18 +2,20 @@ import { ElementType, useState } from 'react'
 
 import Button from '../button'
 import { Dropdown } from '../dropdown'
-import { ItemProps as MenuItemProps } from '../dropdown/DropdownItem'
+import { DropdownItemProps } from '../dropdown/DropdownItem'
 
 interface DropdownPrimaryProps {
   textButton: string
   iconButton?: ElementType
-  items?: MenuItemProps[]
+  closeOnSelect?: boolean
+  items?: DropdownItemProps[]
 }
 
 const DropdownPrimary = ({
   items,
   textButton,
   iconButton,
+  closeOnSelect = true,
 }: DropdownPrimaryProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -27,8 +29,22 @@ const DropdownPrimary = ({
         <Button.Content text={textButton} />
       </Dropdown.Button>
       <Dropdown.Menu isOpen={isOpen}>
-        {items?.map(({ text, icon, iconClass }) => (
-          <Dropdown.Item text={text} icon={icon} iconClass={iconClass} />
+        {items?.map(({ text, icon, iconClass, onClick, ...props }) => (
+          <Dropdown.Item
+            text={text}
+            icon={icon}
+            iconClass={iconClass}
+            onClick={(event) => {
+              if (closeOnSelect) {
+                setIsOpen(false)
+              }
+
+              if (onClick) {
+                onClick(event)
+              }
+            }}
+            {...props}
+          />
         ))}
       </Dropdown.Menu>
     </Dropdown.Root>
