@@ -55,6 +55,7 @@ function Home() {
         <div key={category.id}>
           <ButtonLink
             textButton={category.title}
+            className="px-0"
             onClick={() => navigate(`category/${category.id}`)}
           />
           <Carousel
@@ -82,6 +83,7 @@ function Home() {
                   key={video.id}
                   videoProps={{ url: video.url }}
                   className="w-full"
+                  onClick={() => navigate(`video/${video.id}`)}
                 />
               )
             })}

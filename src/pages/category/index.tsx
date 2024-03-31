@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import PreviewPlayer from '../../components/ui/previewPlayer'
 
@@ -9,6 +9,7 @@ import { CategoryProps } from '../../types/category'
 
 const Category = () => {
   const { id: idRota } = useParams()
+  const navigate = useNavigate()
 
   const [videos, setVideos] = useState<VideoProps[]>([])
   const [category, setCategory] = useState<CategoryProps>()
@@ -60,6 +61,7 @@ const Category = () => {
                 key={video.id}
                 videoProps={{ url: video.url }}
                 className="w-full"
+                onClick={() => navigate(`/video/${video.id}`)}
               />
             )
           }
