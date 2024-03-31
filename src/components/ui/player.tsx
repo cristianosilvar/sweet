@@ -76,6 +76,9 @@ function Player({ videoProps, onClick, ...props }: PlayerProps) {
         onProgress={(state) => {
           setPlayedSeconds(state.playedSeconds)
         }}
+        onEnded={() => {
+          setIsPlaying(false)
+        }}
         {...videoProps}
       />
     </PlayerComponent.Root>

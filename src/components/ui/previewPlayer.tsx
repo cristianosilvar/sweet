@@ -87,6 +87,10 @@ function PreviewPlayer({
           setPlayedSeconds(state.playedSeconds)
         }}
         playIcon={() => undefined}
+        onEnded={() => {
+          seekTo(0)
+        }}
+        loop
         {...videoProps}
       />
     </Player.Root>
