@@ -2,7 +2,7 @@
   "homepage": "https://cristianosilvar.github.io/sweet",
   "name": "sweet",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
