@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
-import Player from '../../components/ui/player'
-import ButtonLink from '../../components/ui/buttonLink'
-import PreviewPlayer from '../../components/ui/previewPlayer'
+import Player from 'components/ui/player'
+import ButtonLink from 'components/ui/buttonLink'
+import PreviewPlayer from 'components/ui/previewPlayer'
 
-import { VideoProps } from '../../types/video'
-import { CategoryProps } from '../../types/category'
+import { VideoProps } from 'types/video'
+import { CategoryProps } from 'types/category'
 
 const Video = () => {
   const { id: idRota } = useParams()
@@ -82,14 +82,15 @@ const Video = () => {
             <ButtonLink
               textButton={category?.title}
               className="px-0"
-              onClick={() => navigate(`category/${video.categoryId}`)}
+              onClick={() => navigate(`/sweet/category/${video.categoryId}`)}
             />
             <div className="base:grid-cols-1 grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1">
               {videos?.map(({ id, url }) => (
                 <PreviewPlayer
+                  key={id}
                   className="w-full"
                   videoProps={{ url }}
-                  onClick={() => navigate(`/video/${id}`)}
+                  onClick={() => navigate(`/sweet/video/${id}`)}
                   withoutSound
                 />
               ))}

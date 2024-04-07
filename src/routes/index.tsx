@@ -14,7 +14,7 @@ const RoutesComponent = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<ProtectedRoute />}>
+        <Route path="sweet" element={<ProtectedRoute />}>
           <Route index element={<Home />} />
           <Route path="video/:id" element={<Video />} />
           <Route path="category/:id" element={<Category />} />

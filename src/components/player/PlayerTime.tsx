@@ -1,8 +1,8 @@
 import { ComponentProps, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { formatTime } from '../../utils/format/formatTime'
-import { getTimeWithSeconds } from '../../utils/getTimeWithSeconds'
+import { formatTime } from 'utils/format/formatTime'
+import { getTimeWithSeconds } from 'utils/getTimeWithSeconds'
 
 type PlayerTimeProps = ComponentProps<'span'> & {
   seconds?: number

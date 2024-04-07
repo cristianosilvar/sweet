@@ -4,12 +4,12 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import axios from 'axios'
 
-import ButtonLink from '../../components/ui/buttonLink'
-import PreviewPlayer from '../../components/ui/previewPlayer'
+import ButtonLink from 'components/ui/buttonLink'
+import PreviewPlayer from 'components/ui/previewPlayer'
 
-import carouselBreakpoint from '../../constants/carouselBreakpoint'
-import { CategoryProps } from '../../types/category'
-import { VideoProps } from '../../types/video'
+import carouselBreakpoint from 'constants/carouselBreakpoint'
+import { CategoryProps } from 'types/category'
+import { VideoProps } from 'types/video'
 
 function Home() {
   const navigate = useNavigate()
