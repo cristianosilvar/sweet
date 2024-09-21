@@ -61,7 +61,7 @@ const Category = () => {
                 key={video.id}
                 videoProps={{ url: video.url }}
                 className="w-full"
-                onClick={() => navigate(`/video/${video.id}`)}
+                onClick={() => navigate(`/sweet/video/${video.id}`)}
               />
             )
           }

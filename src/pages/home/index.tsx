@@ -56,7 +56,7 @@ function Home() {
           <ButtonLink
             textButton={category.title}
             className="px-0"
-            onClick={() => navigate(`category/${category.id}`)}
+            onClick={() => navigate(`/sweet/category/${category.id}`)}
           />
           <Carousel
             containerClass="carousel-container"
@@ -83,7 +83,7 @@ function Home() {
                   key={video.id}
                   videoProps={{ url: video.url }}
                   className="w-full"
-                  onClick={() => navigate(`video/${video.id}`)}
+                  onClick={() => navigate(`/sweet/video/${video.id}`)}
                 />
               )
             })}

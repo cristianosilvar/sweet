@@ -18,17 +18,17 @@ const Header = () => {
             {
               text: 'sports',
               icon: Dribbble,
-              onClick: () => navigate('category/1'),
+              onClick: () => navigate('/sweet/category/1'),
             },
             {
               text: 'movies',
               icon: Video,
-              onClick: () => navigate('category/2'),
+              onClick: () => navigate('/sweet/category/2'),
             },
             {
               text: 'video games',
               icon: Gamepad2,
-              onClick: () => navigate('category/3'),
+              onClick: () => navigate('/sweet/category/3'),
             },
           ]}
         />
